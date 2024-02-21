@@ -6,13 +6,11 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/torii-eae805e8cce94250b8e36b5e459f988d
 Title: Torii
 */
-
-import React, { useRef } from 'react';
+import * as React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { MeshProps } from '@react-three/fiber';
 
 export default function Tori(props) {
-  const { nodes, materials } = useGLTF('/tori/scene.gltf');
+  const { nodes, materials } = useGLTF('/models/tori/scene.gltf');
   return (
     <group {...props} dispose={null} position={[0, -0.2, 0]}>
       <group scale={0.01}>
