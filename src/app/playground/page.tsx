@@ -2,26 +2,24 @@
 
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { ScrollControls } from '@react-three/drei';
 
 import { DEG2RAD } from 'three/src/math/MathUtils.js';
-import { Scene } from './components/Scene';
-import { SCENE_PAGES } from './conts';
+import { VaporWave } from '../components/VaporWave';
+import { OrbitControls } from '@react-three/drei';
 
 export default function Home() {
   return (
     <Suspense fallback={null}>
       <Canvas
         camera={{
-          position: [0, 1.5, 15],
+          position: [0, 0.06, 1.1],
           rotation: [5 * DEG2RAD, 0, 0],
-          fov: 60,
+          fov: 75,
         }}
       >
-        <fog attach="fog" color="#000000" near={1} far={60} />
-        <ScrollControls pages={SCENE_PAGES}>
-          <Scene />
-        </ScrollControls>
+        <OrbitControls />
+        <fog attach="fog" color="#000000" near={1} far={2.5} />
+        <VaporWave />
       </Canvas>
     </Suspense>
   );

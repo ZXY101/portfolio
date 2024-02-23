@@ -7,7 +7,10 @@ extend({ Water });
 
 export function Ocean() {
   const ref = useRef<any>();
-  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
+  const waterNormals = useLoader(
+    THREE.TextureLoader,
+    '/textures/waternormals.jpeg'
+  );
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
   const geom = useMemo(() => new THREE.PlaneGeometry(10000, 10000), []);
 
