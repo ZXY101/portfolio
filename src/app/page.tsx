@@ -2,15 +2,14 @@
 
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { ScrollControls } from '@react-three/drei';
+import { Loader, ScrollControls } from '@react-three/drei';
 
 import { DEG2RAD } from 'three/src/math/MathUtils.js';
 import { Scene } from './components/Scene';
-import { SCENE_PAGES } from './conts';
 
 export default function Home() {
   return (
-    <Suspense fallback={null}>
+    <>
       <Canvas
         camera={{
           position: [0, 1.5, 15],
@@ -18,11 +17,14 @@ export default function Home() {
           fov: 60,
         }}
       >
-        <fog attach="fog" color="#000000" near={1} far={60} />
-        <ScrollControls pages={SCENE_PAGES}>
-          <Scene />
-        </ScrollControls>
+        <Suspense fallback={null}>
+          <ScrollControls pages={10}>
+            <fog attach="fog" color="#000000" near={1} far={200} />
+            <Scene />
+          </ScrollControls>
+        </Suspense>
       </Canvas>
-    </Suspense>
+      <Loader />
+    </>
   );
 }
