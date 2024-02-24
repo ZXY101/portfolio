@@ -10,9 +10,10 @@ import { Sky } from './Sky';
 import { Stars } from './Stars';
 import { DEG2RAD } from 'three/src/math/MathUtils.js';
 import { TextOverlay } from './TextOverlay';
-import { AmbientLight, Group } from 'three';
+import { Group } from 'three';
 import { VaporWave } from './VaporWave';
 import { RGBShiftShader, GammaCorrectionShader } from 'three-stdlib';
+import { Skills } from './Skills';
 
 RGBShiftShader.uniforms = {
   ...RGBShiftShader.uniforms,
@@ -27,7 +28,7 @@ export function Scene() {
   const stars = useRef<any>(null);
   const effects = useRef<any>(null);
   const vaporWave = useRef<Group>(null);
-  const ambientLight = useRef<AmbientLight>(null);
+  const skills = useRef<Group>(null);
 
   const { camera, scene } = useThree();
 
@@ -41,7 +42,8 @@ export function Scene() {
       !stars.current ||
       !scene.fog ||
       !vaporWave.current ||
-      !effects.current
+      !effects.current ||
+      !skills.current
     )
       return;
     tl.current = gsap.timeline();
@@ -147,17 +149,37 @@ export function Scene() {
       },
       '2.5'
     );
-
-    tl.current.to({}, {}, '4');
+    tl.current.from(
+      skills.current.position,
+      {
+        y: 100,
+        duration: 1.2,
+      },
+      '3'
+    );
+    tl.current.to(
+      skills.current.position,
+      {
+        y: 20,
+        z: 15.5,
+        duration: 3,
+      },
+      '4.5'
+    );
     tl.current.to({}, {}, '5');
     tl.current.to({}, {}, '6');
     tl.current.to({}, {}, '7');
-    tl.current.to({}, {}, '8');
-    tl.current.to({}, {}, '9');
   });
 
   return (
     <>
+      {/* <OrbitControls /> */}
+      <Skills
+        position={[-0.05, 20.2, 15.05]}
+        rotation={[180 * DEG2RAD, 0, 0]}
+        scale={0.1}
+        ref={skills}
+      />
       <VaporWave ref={vaporWave} />
       <Effects ref={effects} disableGamma={true}>
         <shaderPass args={[RGBShiftShader]} enabled={false} />

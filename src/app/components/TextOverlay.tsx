@@ -7,7 +7,8 @@ type TextSectionProps = PropsWithChildren<{
 
 function TextSection({ classOverwride, children }: TextSectionProps) {
   const className =
-    classOverwride ?? 'text-3xl top-[33svh] p-2 flex flex-col gap-3 px-10';
+    classOverwride ??
+    'text-xl sm:text-3xl top-[33svh] p-2 flex flex-col gap-3 px-10';
 
   return (
     <section className="h-screen w-screen">
@@ -20,7 +21,7 @@ export function TextOverlay() {
   return (
     <Scroll html>
       <div className="text-white glow text-center">
-        <TextSection classOverwride="text-4xl text-white relative top-[20svh]">
+        <TextSection classOverwride="text-xl sm:text-4xl text-white relative top-[20svh]">
           <h2>{`Hi, I'm Shaun!`}</h2>
           <h2>{`Welcome to my site :)`}</h2>
         </TextSection>
@@ -36,9 +37,7 @@ export function TextOverlay() {
           <h1>{`It's my dream to one day open my own indie game studio in Japan`}</h1>
         </TextSection>
         <TextSection>Until then, these are my skills</TextSection>
-        <TextSection>{`Tech stack as floating objects`}</TextSection>
-        <TextSection>Some Projects</TextSection>
-        <TextSection>{`Projects as floating objects`}</TextSection>
+        <TextSection>And these are some projects</TextSection>
         <TextSection>Contact Me</TextSection>
         <TextSection>Credits n stuff</TextSection>
       </div>
