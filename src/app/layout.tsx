@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Amatic_SC } from 'next/font/google';
 import './globals.css';
 import { ReactThreeFiber } from '@react-three/fiber';
 import { Water } from 'three-stdlib';
 
-const inter = Inter({ subsets: ['latin'] });
+const amaticSC = Amatic_SC({ weight: ['700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Shaun Tenner | Portfolio',
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={amaticSC.className}>{children}</body>
     </html>
   );
 }

@@ -11,6 +11,8 @@ RGBShiftShader.uniforms = {
 };
 
 const SPEED = 0.5;
+const COLOR = 'rgb(214, 54, 161)';
+// const COLOR = 'rgb(64, 226, 69)';
 
 const WavePlane = forwardRef(function WavePlane(props: any, ref: any) {
   const colorMap = useTexture('/textures/grid.png');
@@ -57,7 +59,7 @@ export const VaporWave = forwardRef(function VaporWave(_props: any, ref: any) {
       <spotLight
         position={[0.5, 0.75, 2.2]}
         angle={Math.PI * 0.1}
-        color="rgb(64, 226, 69)"
+        color={COLOR}
         intensity={30}
         penumbra={0.25}
         target={target1}
@@ -65,16 +67,12 @@ export const VaporWave = forwardRef(function VaporWave(_props: any, ref: any) {
       <spotLight
         position={[-0.5, 0.75, 2.2]}
         angle={Math.PI * 0.1}
-        color="rgb(64, 226, 69)"
+        color={COLOR}
         intensity={30}
         penumbra={0.25}
         target={target2}
       />
-      <pointLight
-        intensity={10}
-        position={[0, 1, 0]}
-        color="rgb(64, 226, 69)"
-      />
+      <pointLight intensity={10} position={[0, 1, 0]} color={COLOR} />
       <primitive object={target1} position={[-0.25, 0.25, 0.25]} />
       <primitive object={target2} position={[0.25, 0.25, 0.25]} />
       <WavePlane ref={plane1} />

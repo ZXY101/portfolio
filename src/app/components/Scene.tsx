@@ -4,16 +4,27 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Effects, useScroll } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
+import {
+  RGBShiftShader,
+  GammaCorrectionShader,
+  Sky as SkyImpl,
+  EffectComposer,
+} from 'three-stdlib';
+
 import { useRef } from 'react';
 import { Ocean } from './Ocean';
 import { Sky } from './Sky';
 import { Stars } from './Stars';
 import { DEG2RAD } from 'three/src/math/MathUtils.js';
 import { TextOverlay } from './TextOverlay';
-import { Group } from 'three';
+import { Group, Points } from 'three';
 import { VaporWave } from './VaporWave';
-import { RGBShiftShader, GammaCorrectionShader } from 'three-stdlib';
 import { Skills } from './Skills';
+import {
+  sunsetAnimation,
+  toSkyAnimation,
+  toVaporWaveAnimation,
+} from '../util/animations';
 
 RGBShiftShader.uniforms = {
   ...RGBShiftShader.uniforms,
@@ -24,11 +35,11 @@ export function Scene() {
   const scroll = useScroll();
   const tl = useRef<gsap.core.Timeline>();
 
-  const sky = useRef<any>(null);
-  const stars = useRef<any>(null);
-  const effects = useRef<any>(null);
-  const vaporWave = useRef<Group>(null);
-  const skills = useRef<Group>(null);
+  const skyRef = useRef<typeof SkyImpl>(null);
+  const starsRef = useRef<Points>(null);
+  const effectsRef = useRef<EffectComposer>(null);
+  const vaporWaveRef = useRef<Group>(null);
+  const skillsRef = useRef<Group>(null);
 
   const { camera, scene } = useThree();
 
@@ -37,159 +48,43 @@ export function Scene() {
   });
 
   useGSAP(() => {
-    if (
-      !sky.current ||
-      !stars.current ||
-      !scene.fog ||
-      !vaporWave.current ||
-      !effects.current ||
-      !skills.current
-    )
-      return;
     tl.current = gsap.timeline();
+    const timeline = tl.current;
+    const sky = skyRef.current;
+    const stars = starsRef.current;
+    const effects = effectsRef.current;
+    const vaporWave = vaporWaveRef.current;
+    const skills = skillsRef.current;
 
-    // Sun setting
-    tl.current.to(sky.current.material.uniforms.rayleigh, { value: 10 }, '0');
-    tl.current.to(
-      sky.current.material.uniforms.turbidity,
-      {
-        value: 20,
-      },
-      '0'
-    );
-    tl.current.to(
-      sky.current.material.uniforms.mieCoefficient.value,
-      {
-        y: -100,
-      },
-      '0'
-    );
-    tl.current.to(
-      sky.current.material.uniforms.mieCoefficient,
-      {
-        value: 1,
-      },
-      '0'
-    );
-    tl.current.to(
-      sky.current.material.uniforms.mieDirectionalG,
-      {
-        value: 1,
-      },
-      '0'
-    );
-    tl.current.from(
-      stars.current.position,
-      {
-        duration: 2,
-        y: 500,
-      },
-      '0'
-    );
+    sunsetAnimation(timeline, skyRef.current, stars);
+    toSkyAnimation(timeline, stars, camera, scene.fog);
+    toVaporWaveAnimation(timeline, sky, stars, effects, vaporWave, skills);
 
-    // Camera pan up
-    tl.current.to(
-      camera.rotation,
-      {
-        x: 90 * DEG2RAD,
-      },
-      '2'
-    );
-    tl.current.to(
-      camera.position,
-      {
-        y: 20,
-      },
-      '2'
-    );
-    tl.current.to(
-      scene.fog,
-      {
-        far: 2.5,
-      },
-      '2'
-    );
-    tl.current.to(
-      stars.current.position,
-      {
-        y: 500,
-      },
-      '2.5'
-    );
-
-    // To vaporwave
-    tl.current.to(
-      sky.current,
-      {
-        visible: false,
-      },
-      '2.5'
-    );
-
-    tl.current.to(
-      effects.current.passes[1],
-      {
-        enabled: true,
-      },
-      '3'
-    );
-    tl.current.to(
-      effects.current.passes[2],
-      {
-        enabled: true,
-      },
-      '3'
-    );
-    tl.current.to(
-      vaporWave.current.position,
-      {
-        z: 14.9,
-        y: 21,
-        duration: 1.5,
-      },
-      '2.5'
-    );
-    tl.current.from(
-      skills.current.position,
-      {
-        y: 100,
-        duration: 1.2,
-      },
-      '3'
-    );
-    tl.current.to(
-      skills.current.position,
-      {
-        y: 20,
-        z: 15.5,
-        duration: 3,
-      },
-      '4.5'
-    );
     tl.current.to({}, {}, '5');
     tl.current.to({}, {}, '6');
     tl.current.to({}, {}, '7');
+    tl.current.to({}, {}, '8');
   });
 
   return (
     <>
       {/* <OrbitControls /> */}
       <Skills
-        position={[-0.05, 20.2, 15.05]}
+        position={[-0.05, 20.15, 15.05]}
         rotation={[180 * DEG2RAD, 0, 0]}
         scale={0.1}
-        ref={skills}
+        ref={skillsRef}
       />
-      <VaporWave ref={vaporWave} />
-      <Effects ref={effects} disableGamma={true}>
+      <VaporWave ref={vaporWaveRef} />
+      <Effects ref={effectsRef} disableGamma={true}>
         <shaderPass args={[RGBShiftShader]} enabled={false} />
         <shaderPass args={[GammaCorrectionShader]} enabled={false} />
       </Effects>
       <TextOverlay />
       <Ocean />
-      <Stars ref={stars} />
+      <Stars ref={starsRef} />
       <ambientLight intensity={1} />
-      <Sky ref={sky} />
+      <Sky ref={skyRef} />
       <Tori />
     </>
   );

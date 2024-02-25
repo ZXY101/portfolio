@@ -15,10 +15,11 @@ export default function Home() {
           position: [0, 1.5, 15],
           rotation: [5 * DEG2RAD, 0, 0],
           fov: 60,
+          near: 0.01,
         }}
       >
         <Suspense fallback={null}>
-          <ScrollControls pages={8}>
+          <ScrollControls pages={9} damping={0.2}>
             <fog attach="fog" color="#000000" near={1} far={200} />
             <Scene />
           </ScrollControls>

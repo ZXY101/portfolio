@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 html,
 body,
 main,
@@ -20,6 +17,10 @@ body {
 }
 
 .glow {
-  text-shadow: rgb(255, 255, 255) 1px 0 10px
+  text-shadow: rgb(255, 255, 255) 2px 0 14px;
+}
+
+.bruh {
+  scroll-snap-stop: always;
 }
 
