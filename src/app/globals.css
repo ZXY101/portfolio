@@ -15,12 +15,3 @@ main,
 body {
   background: black
 }
-
-.glow {
-  text-shadow: rgb(255, 255, 255) 2px 0 14px;
-}
-
-.bruh {
-  scroll-snap-stop: always;
-}
-

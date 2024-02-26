@@ -16,10 +16,15 @@
 		{
 			"mesh":0,
 			"name":"Curve",
+			"scale":[
+				0.6219179630279541,
+				1.2438359260559082,
+				0.6219179630279541
+			],
 			"translation":[
-				0.35652121901512146,
-				0,
-				-0.1455039083957672
+				-0.0013873508432880044,
+				-0.0002783969684969634,
+				-0.04247638210654259
 			]
 		}
 	],
@@ -59,29 +64,29 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1171,
+			"count":1172,
 			"max":[
-				0.19446346163749695,
-				0.009999999776482582,
-				0.1455039083957672
+				0.20281705260276794,
+				0.009991459548473358,
+				0.1419001668691635
 			],
 			"min":[
-				-0.20193590223789215,
-				-0.009999999776482582,
-				-0.07778461277484894
+				-0.19358231127262115,
+				-0.010008540004491806,
+				-0.08138835430145264
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1171,
+			"count":1172,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1171,
+			"count":1172,
 			"type":"VEC2"
 		},
 		{
@@ -94,32 +99,32 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":14052,
+			"byteLength":14064,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":14052,
-			"byteOffset":14052,
+			"byteLength":14064,
+			"byteOffset":14064,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":9368,
-			"byteOffset":28104,
+			"byteLength":9376,
+			"byteOffset":28128,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":6960,
-			"byteOffset":37472,
+			"byteOffset":37504,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":44432,
+			"byteLength":44464,
 			"uri":"android.bin"
 		}
 	]

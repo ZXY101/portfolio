@@ -16,17 +16,17 @@
 		{
 			"mesh":0,
 			"name":"Curve",
-			"translation":[
-				0.06486515700817108,
-				0,
-				-0.05807539075613022
+			"scale":[
+				0.7506851553916931,
+				0.32873958349227905,
+				0.7506851553916931
 			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"SVGMat.011",
+			"name":"Material.006",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0,
@@ -34,14 +34,14 @@
 					0,
 					1
 				],
-				"metallicFactor":0,
-				"roughnessFactor":0.4000000059604645
+				"metallicFactor":0.3700787425041199,
+				"roughnessFactor":0.7440944910049438
 			}
 		}
 	],
 	"meshes":[
 		{
-			"name":"Curve.011",
+			"name":"Curve.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -59,7 +59,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1960,
+			"count":2077,
 			"max":[
 				0.06255462765693665,
 				0.009999999776482582,
@@ -75,13 +75,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1960,
+			"count":2077,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1960,
+			"count":2077,
 			"type":"VEC2"
 		},
 		{
@@ -94,32 +94,32 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":23520,
+			"byteLength":24924,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":23520,
-			"byteOffset":23520,
+			"byteLength":24924,
+			"byteOffset":24924,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":15680,
-			"byteOffset":47040,
+			"byteLength":16616,
+			"byteOffset":49848,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":11736,
-			"byteOffset":62720,
+			"byteOffset":66464,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":74456,
+			"byteLength":78200,
 			"uri":"next.bin"
 		}
 	]

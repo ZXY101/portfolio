@@ -70,7 +70,7 @@ export function Scene() {
     <>
       {/* <OrbitControls /> */}
       <Skills
-        position={[-0.05, 20.15, 15.05]}
+        position={[-0.05, 100, 15.05]}
         rotation={[180 * DEG2RAD, 0, 0]}
         scale={0.1}
         ref={skillsRef}

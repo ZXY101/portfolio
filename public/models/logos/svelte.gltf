@@ -18,28 +18,28 @@
 			"mesh":0,
 			"name":"Curve",
 			"scale":[
-				0.7866197824478149,
-				0.7866197824478149,
-				0.7866197824478149
+				0.7332850694656372,
+				1.4665701389312744,
+				0.7332850694656372
 			],
 			"translation":[
-				0.22705484926700592,
-				0.0010669012553989887,
-				-0.2726280093193054
+				0.003950536251068115,
+				1.749885268509388e-05,
+				-0.004923701286315918
 			]
 		},
 		{
 			"mesh":1,
 			"name":"Curve.001",
 			"scale":[
-				0.7866197824478149,
-				0.7866197824478149,
-				0.7866197824478149
+				0.7332850694656372,
+				2.199855327606201,
+				0.7332850694656372
 			],
 			"translation":[
-				0.21845842897891998,
-				0.00893309898674488,
-				-0.2622050940990448
+				-0.003950536251068115,
+				-1.7498736269772053e-05,
+				0.004923701286315918
 			]
 		}
 	],
@@ -62,12 +62,6 @@
 			"doubleSided":true,
 			"name":"SVGMat.026",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					1,
-					1,
-					1,
-					1
-				],
 				"metallicFactor":0,
 				"roughnessFactor":0.4000000059604645
 			}
@@ -107,7 +101,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1730,
+			"count":1732,
 			"max":[
 				0.2543810307979584,
 				0.009999999776482582,
@@ -123,13 +117,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1730,
+			"count":1732,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1730,
+			"count":1732,
 			"type":"VEC2"
 		},
 		{
@@ -141,7 +135,7 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":6322,
+			"count":6358,
 			"max":[
 				0.1898602694272995,
 				0.009999999776482582,
@@ -157,13 +151,13 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":6322,
+			"count":6358,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":6322,
+			"count":6358,
 			"type":"VEC2"
 		},
 		{
@@ -176,56 +170,56 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":20760,
+			"byteLength":20784,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":20760,
-			"byteOffset":20760,
+			"byteLength":20784,
+			"byteOffset":20784,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":13840,
-			"byteOffset":41520,
+			"byteLength":13856,
+			"byteOffset":41568,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":10344,
-			"byteOffset":55360,
+			"byteOffset":55424,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":75864,
-			"byteOffset":65704,
+			"byteLength":76296,
+			"byteOffset":65768,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":75864,
-			"byteOffset":141568,
+			"byteLength":76296,
+			"byteOffset":142064,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":50576,
-			"byteOffset":217432,
+			"byteLength":50864,
+			"byteOffset":218360,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":37800,
-			"byteOffset":268008,
+			"byteOffset":269224,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":305808,
+			"byteLength":307024,
 			"uri":"svelte.bin"
 		}
 	]

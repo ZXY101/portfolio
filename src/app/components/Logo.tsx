@@ -2,13 +2,14 @@ import { useGLTF } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Group } from 'three';
+import { getRandVec3 } from '../util';
 
 type LogoProps = GroupProps & {
   path: string;
   spin?: [x: number, y: number, z: number];
 };
 
-export function Logo({ path, spin = [0.1, 0.1, 0.1], ...rest }: LogoProps) {
+export function Logo({ path, spin = getRandVec3(), ...rest }: LogoProps) {
   const { scene } = useGLTF(path);
   const ref = useRef<Group>(null);
 

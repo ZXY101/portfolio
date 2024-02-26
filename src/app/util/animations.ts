@@ -64,7 +64,7 @@ export function toSkyAnimation(
   );
   tl.to(
     stars.position,
-    { y: 500, },
+    { y: 500, duration: 6 },
     '2.5'
   );
 }
@@ -101,25 +101,24 @@ export function toVaporWaveAnimation(
     {
       z: 14.9,
       y: 21,
-      duration: 1.5,
+      duration: 2,
     },
-    '2.5'
+    '2'
   );
-  tl.from(
+  tl.to(
     skills.position,
     {
-      y: 100,
-      duration: 1.2,
+      y: 21,
+      duration: 0.1
     },
-    '3'
+    '3.9'
   );
   tl.to(
     skills.position,
     {
       y: 20,
-      z: 15.5,
-      duration: 3,
+      duration: 3
     },
-    '4.5'
+    '4'
   );
 }
