@@ -1,4 +1,4 @@
-import { Scroll } from '@react-three/drei';
+import { Scroll, useScroll } from '@react-three/drei';
 import { HTMLAttributes, PropsWithChildren } from 'react';
 
 type TextSectionProps = PropsWithChildren<{
@@ -18,10 +18,11 @@ function TextSection({ classOverwride, children }: TextSectionProps) {
 }
 
 export function TextOverlay() {
+  const { el } = useScroll();
   return (
     <Scroll html>
       <div className="text-white [text-shadow:_2px_0_14px_rgb(255_255_255)] text-center">
-        <TextSection classOverwride="text-xl sm:text-5xl text-white relative top-[20svh] [text-shadow:_2px_0_14px_rgb(206_144_94)]">
+        <TextSection classOverwride="text-xl sm:text-5xl text-white relative top-[20svh] [text-shadow:_2px_0_14px_rgb(100_100_100)]">
           <h2>{`Hi, I'm Shaun!`}</h2>
           <h2>{`Welcome to my site :)`}</h2>
         </TextSection>

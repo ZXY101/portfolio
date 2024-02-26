@@ -11,7 +11,7 @@ import {
   EffectComposer,
 } from 'three-stdlib';
 
-import { useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { Ocean } from './Ocean';
 import { Sky } from './Sky';
 import { Stars } from './Stars';
@@ -25,6 +25,7 @@ import {
   toSkyAnimation,
   toVaporWaveAnimation,
 } from '../util/animations';
+import { ScrollContext } from '../util';
 
 RGBShiftShader.uniforms = {
   ...RGBShiftShader.uniforms,
@@ -40,8 +41,13 @@ export function Scene() {
   const effectsRef = useRef<EffectComposer>(null);
   const vaporWaveRef = useRef<Group>(null);
   const skillsRef = useRef<Group>(null);
+  const { setEl } = useContext(ScrollContext);
 
   const { camera, scene } = useThree();
+
+  useEffect(() => {
+    setEl?.(scroll.el);
+  }, [scroll.el, setEl]);
 
   useFrame(() => {
     tl.current?.seek(scroll.offset * tl.current.duration());
