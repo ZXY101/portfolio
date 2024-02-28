@@ -1,4 +1,4 @@
-import { useGLTF } from '@react-three/drei';
+import { Billboard, Center, Text3D, useGLTF } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Group } from 'three';
@@ -6,23 +6,33 @@ import { getRandVec3 } from '../util';
 
 type LogoProps = GroupProps & {
   path: string;
-  spin?: [x: number, y: number, z: number];
+  displayName: string;
 };
 
-export function Logo({ path, spin = getRandVec3(), ...rest }: LogoProps) {
+export function Logo({ path, displayName, ...rest }: LogoProps) {
   const { scene } = useGLTF(path);
   const ref = useRef<Group>(null);
+  const [x, y, z] = rest.position as any;
 
-  useFrame((state) => {
-    const { elapsedTime } = state.clock;
-    const [x, y, z] = spin;
+  const rotation = getRandVec3(-1, 1);
 
+  useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x = x * elapsedTime;
-      ref.current.rotation.y = y * elapsedTime;
-      ref.current.rotation.z = z * elapsedTime;
+      ref.current.rotation.x += 0.1 * delta;
+      ref.current.rotation.z += 0.3 * delta;
     }
   });
 
-  return <primitive object={scene} ref={ref} {...rest} />;
+  return (
+    <group>
+      <primitive object={scene} ref={ref} rotation={rotation} {...rest} />
+      <Billboard position={[x, y + 0.05, z + 0.1]}>
+        <Center>
+          <Text3D scale={0.015} font={'/fonts/Amatic SC_Bold.json'}>
+            {displayName}
+          </Text3D>
+        </Center>
+      </Billboard>
+    </group>
+  );
 }

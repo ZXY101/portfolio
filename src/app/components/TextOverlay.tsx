@@ -18,7 +18,6 @@ function TextSection({ classOverwride, children }: TextSectionProps) {
 }
 
 export function TextOverlay() {
-  const { el } = useScroll();
   return (
     <Scroll html>
       <div className="text-white [text-shadow:_2px_0_14px_rgb(255_255_255)] text-center">
@@ -28,16 +27,20 @@ export function TextOverlay() {
         </TextSection>
         <TextSection>
           <h1>{`I'm a software dev born and raised in South Africa`}</h1>
-          <h1>{`I love Japan, nature, playing games & making cool things`}</h1>
+          <h1>{`I love Japan, nature, playing games, and making cool things`}</h1>
         </TextSection>
         <TextSection>
-          <h1>{`Most of my professional experience is in web & mobile development`}</h1>
-          <h1>{`but outside of work I love learning new things and messing around in other domains`}</h1>
+          <h1>{`Most of my experience is in mobile & web development`}</h1>
+          <h1>{`Professionally I have around 3 years of work experience - mainly in react native development`}</h1>
+          <h1>{`Outside of work I love learning and making stuff to make my life easier`}</h1>
         </TextSection>
         <TextSection>
-          <h1>{`It's my dream to one day open my own indie game studio in Japan`}</h1>
+          <h1>{`All of my free time goes into learning Japanese & upskilling`}</h1>
+          <br />
+          <h1>{`My dream is to one day create my own indie game studio in Japan`}</h1>
+          <h1>{`I'm still a long ways off from fufilling that dream...`}</h1>
         </TextSection>
-        <TextSection>Until then, these are my skills</TextSection>
+        <TextSection>{`So until then, here's what I can do:`}</TextSection>
         <TextSection></TextSection>
         <TextSection>And these are some projects</TextSection>
         <TextSection>Contact Me</TextSection>

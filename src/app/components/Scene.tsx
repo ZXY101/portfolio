@@ -17,7 +17,7 @@ import { Sky } from './Sky';
 import { Stars } from './Stars';
 import { DEG2RAD } from 'three/src/math/MathUtils.js';
 import { TextOverlay } from './TextOverlay';
-import { Group, Points } from 'three';
+import { Group, PointLight, Points } from 'three';
 import { VaporWave } from './VaporWave';
 import { Skills } from './Skills';
 import {
@@ -34,15 +34,16 @@ RGBShiftShader.uniforms = {
 
 export function Scene() {
   const scroll = useScroll();
-  const tl = useRef<gsap.core.Timeline>();
 
+  const tl = useRef<gsap.core.Timeline>();
   const skyRef = useRef<typeof SkyImpl>(null);
   const starsRef = useRef<Points>(null);
   const effectsRef = useRef<EffectComposer>(null);
   const vaporWaveRef = useRef<Group>(null);
   const skillsRef = useRef<Group>(null);
-  const { setEl } = useContext(ScrollContext);
+  const pointLightRef = useRef<PointLight>(null);
 
+  const { setEl } = useContext(ScrollContext);
   const { camera, scene } = useThree();
 
   useEffect(() => {
@@ -61,8 +62,9 @@ export function Scene() {
     const effects = effectsRef.current;
     const vaporWave = vaporWaveRef.current;
     const skills = skillsRef.current;
+    const pointLight = pointLightRef.current;
 
-    sunsetAnimation(timeline, skyRef.current, stars);
+    sunsetAnimation(timeline, skyRef.current, stars, pointLight);
     toSkyAnimation(timeline, stars, camera, scene.fog);
     toVaporWaveAnimation(timeline, sky, stars, effects, vaporWave, skills);
 
@@ -92,6 +94,12 @@ export function Scene() {
       <ambientLight intensity={1} />
       <Sky ref={skyRef} />
       <Tori />
+      <pointLight
+        position={[0, 5, 2]}
+        intensity={20}
+        color="cyan"
+        ref={pointLightRef}
+      />
     </>
   );
 }

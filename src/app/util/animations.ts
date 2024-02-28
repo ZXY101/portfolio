@@ -1,14 +1,15 @@
 import { Sky, EffectComposer } from 'three-stdlib'
-import { FogBase, Group, Points } from 'three';
+import { FogBase, Group, PointLight, Points } from 'three';
 import { Camera } from '@react-three/fiber';
 import { DEG2RAD } from 'three/src/math/MathUtils.js';
 
 export function sunsetAnimation(
   tl: gsap.core.Timeline,
   sky: typeof Sky | null,
-  stars: Points | null
+  stars: Points | null,
+  pointLight: PointLight | null
 ) {
-  if (!tl || !sky || !stars) return;
+  if (!tl || !sky || !stars || !pointLight) return;
 
   const uniforms = sky.material.uniforms;
 
@@ -31,8 +32,15 @@ export function sunsetAnimation(
   tl.from(
     stars.position,
     {
-      duration: 2,
+      duration: 2.5,
       y: 500,
+    }, '0'
+  );
+  tl.from(
+    pointLight.position,
+    {
+      duration: 2,
+      y: -2,
     }, '0'
   );
 }
@@ -108,7 +116,7 @@ export function toVaporWaveAnimation(
   tl.to(
     skills.position,
     {
-      y: 21,
+      y: 20.3,
       duration: 0.1
     },
     '3.9'
@@ -116,8 +124,8 @@ export function toVaporWaveAnimation(
   tl.to(
     skills.position,
     {
-      y: 20,
-      duration: 3
+      y: 19.8,
+      duration: 2.2
     },
     '4'
   );
