@@ -22,7 +22,7 @@ export default function Home() {
             fov: 60,
             near: 0.01,
           }}
-          dpr={window.devicePixelRatio}
+          dpr={devicePixelRatio}
         >
           <Suspense fallback={null}>
             <ScrollControls pages={10} damping={0.2}>
