@@ -12,8 +12,6 @@ import { ScrollContext } from './util';
 export default function Home() {
   const [el, setEl] = useState<HTMLDivElement | null>(null);
 
-  if (typeof window === 'undefined') return null;
-
   return (
     <>
       <ScrollContext.Provider value={{ el, setEl }}>
@@ -25,7 +23,7 @@ export default function Home() {
             fov: 60,
             near: 0.01,
           }}
-          dpr={devicePixelRatio}
+          dpr={typeof window !== 'undefined' ? window.devicePixelRatio : 3}
         >
           <Suspense fallback={null}>
             <ScrollControls pages={10} damping={0.2}>
