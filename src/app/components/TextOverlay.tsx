@@ -31,7 +31,7 @@ function Project({ title, description, image, url }: ProjectProps) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={image} alt={title} className="object-contain " />
       </a>
-      <p className="text-3xl ">{description}</p>
+      <p className="text-xl sm:text-3xl ">{description}</p>
     </div>
   );
 }
