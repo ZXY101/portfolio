@@ -3,6 +3,7 @@ import { Amatic_SC } from 'next/font/google';
 import './globals.css';
 import { ReactThreeFiber } from '@react-three/fiber';
 import { Water } from 'three-stdlib';
+import { Analytics } from '@vercel/analytics/react';
 
 const amaticSC = Amatic_SC({ weight: ['700'], subsets: ['latin'] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={amaticSC.className}>{children}</body>
+      <Analytics />
     </html>
   );
 }
