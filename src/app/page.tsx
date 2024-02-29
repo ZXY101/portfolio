@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Loader, ScrollControls } from '@react-three/drei';
 
@@ -11,6 +11,9 @@ import { ScrollContext } from './util';
 
 export default function Home() {
   const [el, setEl] = useState<HTMLDivElement | null>(null);
+
+  if (typeof window === 'undefined') return null;
+
   return (
     <>
       <ScrollContext.Provider value={{ el, setEl }}>
