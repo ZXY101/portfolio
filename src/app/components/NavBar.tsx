@@ -35,10 +35,10 @@ function NavItems({ afterScroll }: { afterScroll?: () => void }) {
       <NavItem afterScroll={afterScroll} page={4.4}>
         Skills
       </NavItem>
-      <NavItem afterScroll={afterScroll} page={6.8}>
+      <NavItem afterScroll={afterScroll} page={6.5}>
         Projects
       </NavItem>
-      <NavItem afterScroll={afterScroll} page={11}>
+      <NavItem afterScroll={afterScroll} page={10}>
         Contact & Attribution
       </NavItem>
     </>

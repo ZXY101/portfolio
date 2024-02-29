@@ -29,7 +29,7 @@ function Project({ title, description, image, url }: ProjectProps) {
       <h1 className="text-white text-2xl sm:text-3xl text-center ">{title}</h1>
       <a target="_blank" href={url} className="sm:max-w-[70svw] max-w-[90svw]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt={title} className="object-contain " />
+        <img src={image} alt={title} className="object-contain" />
       </a>
       <p className="text-xl sm:text-3xl ">{description}</p>
     </div>

@@ -125,7 +125,7 @@ export function toVaporWaveAnimation(
     skills.position,
     {
       y: 19.8,
-      duration: 2.2
+      duration: 3.2
     },
     '5'
   );
