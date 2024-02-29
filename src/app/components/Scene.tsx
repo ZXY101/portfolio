@@ -73,7 +73,6 @@ export function Scene() {
     tl.current.to({}, {}, '7');
     tl.current.to({}, {}, '8');
     tl.current.to({}, {}, '9');
-    tl.current.to({}, {}, '10');
   });
 
   return (

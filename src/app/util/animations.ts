@@ -92,17 +92,17 @@ export function toVaporWaveAnimation(
   tl.to(
     sky,
     { visible: false, },
-    '2.5'
+    '3.5'
   );
   tl.to(
     shaderPass,
     { enabled: true, },
-    '3'
+    '4'
   );
   tl.to(
     gammaPass,
     { enabled: true, },
-    '3'
+    '4'
   );
   tl.to(
     vaporWave.position,
@@ -111,7 +111,7 @@ export function toVaporWaveAnimation(
       z: 14.9,
       duration: 2,
     },
-    '2'
+    '3'
   );
   tl.to(
     skills.position,
@@ -119,7 +119,7 @@ export function toVaporWaveAnimation(
       y: 20.3,
       duration: 0.1
     },
-    '3.9'
+    '4.9'
   );
   tl.to(
     skills.position,
@@ -127,7 +127,7 @@ export function toVaporWaveAnimation(
       y: 19.8,
       duration: 2.2
     },
-    '4'
+    '5'
   );
 
   tl.to(
@@ -136,7 +136,7 @@ export function toVaporWaveAnimation(
       z: 10,
       duration: 2
     },
-    '9'
+    '10'
   );
 
 

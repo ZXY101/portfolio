@@ -24,7 +24,7 @@ export default function Home() {
           }}
         >
           <Suspense fallback={null}>
-            <ScrollControls pages={11} damping={0.2}>
+            <ScrollControls pages={10} damping={0.2}>
               <fog attach="fog" color="#000000" near={1} far={200} />
               <Scene />
             </ScrollControls>
