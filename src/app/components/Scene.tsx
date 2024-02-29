@@ -72,11 +72,12 @@ export function Scene() {
     tl.current.to({}, {}, '6');
     tl.current.to({}, {}, '7');
     tl.current.to({}, {}, '8');
+    tl.current.to({}, {}, '9');
+    tl.current.to({}, {}, '10');
   });
 
   return (
     <>
-      {/* <OrbitControls /> */}
       <Skills
         position={[-0.05, 100, 15.05]}
         rotation={[180 * DEG2RAD, 0, 0]}

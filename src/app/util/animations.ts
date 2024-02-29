@@ -107,8 +107,8 @@ export function toVaporWaveAnimation(
   tl.to(
     vaporWave.position,
     {
-      z: 14.9,
       y: 21,
+      z: 14.9,
       duration: 2,
     },
     '2'
@@ -129,4 +129,15 @@ export function toVaporWaveAnimation(
     },
     '4'
   );
+
+  tl.to(
+    vaporWave.position,
+    {
+      z: 10,
+      duration: 2
+    },
+    '9'
+  );
+
+
 }
