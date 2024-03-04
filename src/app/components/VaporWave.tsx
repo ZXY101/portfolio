@@ -12,7 +12,6 @@ RGBShiftShader.uniforms = {
 
 const SPEED = 0.5;
 const COLOR = 'rgb(214, 54, 161)';
-// const COLOR = 'rgb(64, 226, 69)';
 
 const WavePlane = forwardRef(function WavePlane(props: any, ref: any) {
   const colorMap = useTexture('/textures/grid.png');
