@@ -10,6 +10,8 @@ const amaticSC = Amatic_SC({ weight: ['700'], subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Shaun Tenner | Portfolio',
   description: "Shaun Tenner's 3D Portfolio Website",
+  authors: [{ name: 'Shaun Tenner', url: 'https://www.shauntenner.dev/' }],
+  keywords: ['nextjs', 'portfolio', 'developer', 'threejs', 'japan'],
   openGraph: {
     type: 'website',
     title: 'Shaun Tenner | Portfolio',
