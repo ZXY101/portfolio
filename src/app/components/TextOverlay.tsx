@@ -62,7 +62,7 @@ export function TextOverlay() {
         </TextSection>
         <TextSection>
           <h1>{`Most of my experience is in mobile & web development`}</h1>
-          <h1>{`Professionally I have around 3 years of work experience - mainly in react native development`}</h1>
+          <h1>{`Professionally I have around 5 years of work experience - mainly in react native development`}</h1>
           <h1>{`Outside of work I love learning and making stuff to make my life easier`}</h1>
         </TextSection>
         <TextSection>
